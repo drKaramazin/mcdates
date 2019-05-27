@@ -5,17 +5,23 @@ var fileSync = require('gulp-file-sync');
 
 var tsProject = ts.createProject('tsconfig.json');
 
-gulp.task('build', function () {
+gulp.task('build-ts', function () {
     return gulp.src('src/*.ts')
         .pipe(tsProject())
         .pipe(gulp.dest('dist'));
 });
 
-function syncHtml() {
+gulp.task('sync-html', function (cb) {
     fileSync('src/html', 'dist');
+    cb();
+});
 
-    return Promise.resolve();
-}
+gulp.task('reload-browser', function (cb) {
+    browserSync.reload();
+    cb();
+});
+
+gulp.task('build', gulp.parallel('sync-html', 'build-ts'));
 
 gulp.task('watch', function () {
     browserSync.init({
@@ -27,9 +33,9 @@ gulp.task('watch', function () {
         }
     });
 
-    gulp.watch('src/*', gulp.series(syncHtml, 'build', browserSync.reload));
+    gulp.watch('src/**/*', gulp.series('build', 'reload-browser'));
 });
 
-gulp.task('serve', gulp.series(syncHtml, 'build', 'watch'));
+gulp.task('serve', gulp.series('build', 'watch'));
 
-gulp.task('default', gulp.series('serve'));
+gulp.task('default', gulp.series('build'));
