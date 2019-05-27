@@ -2,17 +2,22 @@ var gulp = require('gulp');
 var browserSync = require('browser-sync').create();
 var ts = require('gulp-typescript');
 var fileSync = require('gulp-file-sync');
+var sourcemaps = require('gulp-sourcemaps');
 
 var tsProject = ts.createProject('tsconfig.json');
 
 gulp.task('build-ts', function () {
     return gulp.src('src/*.ts')
+        .pipe(sourcemaps.init())
         .pipe(tsProject())
+        .pipe(sourcemaps.write('maps'))
         .pipe(gulp.dest('dist'));
 });
 
 gulp.task('sync-html', function (cb) {
-    fileSync('src/html', 'dist');
+    fileSync('src', 'dist', {
+        ignore: /^.*\.ts$/,
+    });
     cb();
 });
 

@@ -1,0 +1,25 @@
+<!doctype html>
+<html ng-app="mcdatesApp">
+<head>
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+
+    <link rel="stylesheet" href="node_modules/angular-material/angular-material.css">
+
+    <script src="node_modules/angular/angular.js"></script>
+    <script src="node_modules/angular-animate/angular-animate.js"></script>
+    <script src="node_modules/angular-material/angular-material.js"></script>
+    <script src="node_modules/angular-aria/angular-aria.js"></script>
+    <script src="node_modules/angular-messages/angular-messages.js"></script>
+    <script src="app.js"></script>
+</head>
+<body>
+<div>
+
+    <h1>Hello! 123</h1>
+    <div ng-controller="McdatesController as mcdates">
+        <md-datepicker ng-model="mcdates.myDate"></md-datepicker>
+    </div>
+
+</div>
+</body>
+</html>
