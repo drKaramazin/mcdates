@@ -1,0 +1,31 @@
+{
+  "name": "mcdates",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/drKaramazin/mcdates.git"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/drKaramazin/mcdates/issues"
+  },
+  "homepage": "https://github.com/drKaramazin/mcdates#readme",
+  "devDependencies": {
+    "@types/angular": "^1.6.54",
+    "browser-sync": "^2.26.5",
+    "gulp": "^4.0.2",
+    "gulp-file-sync": "^2.0.0",
+    "gulp-typescript": "^5.0.1",
+    "typescript": "^3.4.5"
+  },
+  "dependencies": {
+    "angular": "^1.7.8"
+  }
+}
