@@ -15,9 +15,22 @@
 <body>
 <div>
 
-    <h1>Hello! 123</h1>
+    <h1>msDates by Nikolay Grishkin</h1>
     <div ng-controller="McdatesController as mcdates">
-        <md-datepicker ng-model="mcdates.myDate"></md-datepicker>
+
+        <mc-dates date-from="mcdates.dateFrom" date-to="mcdates.dateTo"></mc-dates>
+
+        <div>
+            <md-input-container>
+                <label>Дата 1</label>
+                <input ng-model="mcdates.dateFrom">
+            </md-input-container>
+            <md-input-container>
+                <label>Дата 2</label>
+                <input ng-model="mcdates.dateTo">
+            </md-input-container>
+        </div>
+
     </div>
 
 </div>
